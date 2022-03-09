@@ -1,5 +1,5 @@
 import Discord from 'discord.js';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 dotenv.config();
 
 const CHANNEL_IDS = ['951216669953507439', '940696336959934484'];
@@ -12,14 +12,16 @@ client.login(process.env.BOT_TOKEN);
 
 client.on('ready', () => {
   console.log('sup');
-})
+});
 
 client.on('message', async msg => {
-  if (msg.author.bot) { return }
+  if (msg.author.bot) {
+    return;
+  }
   if (CHANNEL_IDS.includes(msg.channel.id)) {
     const body = msg.content;
-    if((body.includes('💚') || body.includes('🟩'))&& body.includes('rdle')) {
-      let newBody = body.replaceAll('🟨', '🟦')
+    if ((body.includes('💚') || body.includes('🟩')) && body.includes('rdle')) {
+      let newBody = body.replaceAll('🟨', '🟦');
       newBody = newBody.replaceAll('🟩', '🟨');
       newBody = newBody.replaceAll('💛', '💙');
       newBody = newBody.replaceAll('💚', '💛');
