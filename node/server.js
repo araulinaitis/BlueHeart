@@ -24,7 +24,8 @@ client.on('message', async msg => {
       newBody = newBody.replaceAll('💛', '💙');
       newBody = newBody.replaceAll('💚', '💛');
       const user = (await msg.guild.members.fetch(msg.author.id)).user;
-      await msg.channel.send(`${user}'s -rdle score(s):\n${newBody}`);
+      const newMessage = await msg.channel.send(`${user}'s -rdle score(s):\n${newBody}`);
+      newMessage.suppressEmbeds();
       msg.delete();
     }
   }
