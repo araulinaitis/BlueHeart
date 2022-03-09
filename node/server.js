@@ -18,7 +18,7 @@ client.on('message', async msg => {
   if (msg.author.bot) { return }
   if (CHANNEL_IDS.includes(msg.channel.id)) {
     const body = msg.content;
-    if(body.includes('💚') && body.includes('rdle')) {
+    if((body.includes('💚') || body.includes('🟦'))&& body.includes('rdle')) {
       const newBody = body.replaceAll('💚', '💙');
       const newNewBody = newBody.replaceAll('🟩', '🟦');
       const user = (await msg.guild.members.fetch(msg.author.id)).user;
