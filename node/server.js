@@ -19,10 +19,12 @@ client.on('message', async msg => {
   if (CHANNEL_IDS.includes(msg.channel.id)) {
     const body = msg.content;
     if((body.includes('💚') || body.includes('🟩'))&& body.includes('rdle')) {
-      const newBody = body.replaceAll('💚', '💙');
-      const newNewBody = newBody.replaceAll('🟩', '🟦');
+      let newBody = body.replaceAll('🟨', '🟦')
+      newBody = newBody.replaceAll('🟩', '🟨');
+      newBody = newBody.replaceAll('💛', '💙');
+      newBody = newBody.replaceAll('💚', '💛');
       const user = (await msg.guild.members.fetch(msg.author.id)).user;
-      await msg.channel.send(`${user}'s -rdle score:\n${newNewBody}`);
+      await msg.channel.send(`${user}'s -rdle score:\n${newBody}`);
       msg.delete();
     }
   }
