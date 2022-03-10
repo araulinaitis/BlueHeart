@@ -34,7 +34,7 @@ client.on('message', async msg => {
     if (body.substring(0, ('!blueHeart opt in').length).toLowerCase() === '!blueheart opt in') {
       userList[msg.member.id] = true;
       await saveList();
-      msg.channel.send('Thank you for opting in to the blueHeart bot!');
+      msg.channel.send('Thank you for opting in to the blueHeart bot!\n💙💛');
     }
     else if (body.substring(0, ('!blueHeart opt out').length).toLowerCase() === '!blueheart opt out') {
       userList[msg.member.id] = false;
