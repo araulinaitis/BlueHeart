@@ -45,7 +45,7 @@ client.on('message', async msg => {
       const user = (await msg.guild.members.fetch(msg.author.id)).user;
       msg.channel.send(`${user}, use \`!blueHeart opt in\` or \`!blueHeart opt out\` to change your opt-in/out status`);
     }
-    else if ((body.includes('💚') || body.includes('🟩') || body.includes('🟪')) && body.includes('rdle') && userList[msg.member.id]) {
+    else if ((body.includes('💚') || body.includes('🟩') || body.includes('🟪')) && (body.includes('rdle') || body.toLowerCase().includes('lewdle')) && userList[msg.member.id]) {
       let newBody = body.replaceAll('🟨', '🟦');
       newBody = newBody.replaceAll('🟪', '🟦');
       newBody = newBody.replaceAll('🟩', '🟨');
